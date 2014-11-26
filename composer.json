@@ -1,5 +1,5 @@
 {
-    "name": "rexlu/Laravel-oracle-pdo-odbc-driver",
+    "name": "rexlu/laravel-oracle-pdo-odbc-driver",
     "description": "Adds an Oracle ODBC(PDO) driver package to Laravel 4.2",
     "keywords": ["laravel","database","odbc"],
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-0": {
-            "rexlu\\Laravelodbc": "src/"
+            "rexlu\Laravelodbc": "src/"
         }
     },
     "minimum-stability": "dev"
