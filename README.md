@@ -38,11 +38,6 @@ find the providers key towards the bottom.
 'rexlu\Laravelodbc\ODBCServiceProvider'
 ```
 
-Then run
-```php
-php artisan config:publish rexlu/laraveloracleodbc
-```
-
 Configuration
 =============
 
