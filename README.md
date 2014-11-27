@@ -20,7 +20,7 @@ Add `rexlu/laraveloracleodbc` as a requirement to composer.json:
 
 Update your packages with `composer update` or install with `composer install`.
 
-or CLT
+or by command
 
 ```php
 composer require rexlu/laraveloracleodbc:dev-master -vvv
