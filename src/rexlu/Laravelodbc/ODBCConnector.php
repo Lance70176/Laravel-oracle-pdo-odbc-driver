@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Connectors\Connector;
 use Illuminate\Database\Connectors\ConnectorInterface;
+use PDO;
 
 class ODBCConnector extends Connector implements ConnectorInterface {
 
