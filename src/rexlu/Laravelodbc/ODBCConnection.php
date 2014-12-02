@@ -24,4 +24,15 @@ class ODBCConnection extends Connection {
         return $this->withTablePrefix(new ODBCSchemaGrammar);
 	}
 
+    /**
+     * @param string $format
+     * @return $this
+     */
+    public function setDateFormat($format = 'YYYY-MM-DD HH24:MI:SS')
+    {
+        $this->statement("alter session set NLS_DATE_FORMAT = '$format'");
+        $this->statement("alter session set NLS_TIMESTAMP_FORMAT = '$format'");
+        return $this;
+    }
+    
 }
