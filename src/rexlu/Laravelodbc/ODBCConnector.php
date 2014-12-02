@@ -17,7 +17,10 @@ class ODBCConnector extends Connector implements ConnectorInterface {
 
         $dsn = array_get($config, 'dsn');
 
-		return $this->createConnection($dsn, $config, $options);
+		$pdo = $this->createConnection($dsn, $config, $options);
+		$pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
+		return $pdo;
+
 	}
 
 	
