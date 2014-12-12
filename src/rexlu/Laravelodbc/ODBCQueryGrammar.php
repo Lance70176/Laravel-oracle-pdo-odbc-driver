@@ -42,7 +42,7 @@ class ODBCQueryGrammar extends Grammar {
 		{
 			return $this->compileAnsiOffset($query, $components);
 		}
-		
+
 		return trim($this->concatenate($components));
 	}
 
@@ -185,7 +185,7 @@ class ODBCQueryGrammar extends Grammar {
 	public function compileInsertGetId(Builder $query, $values, $sequence)
 	{
 		if (is_null($sequence)) $sequence = 'id';
-		return $this->compileInsert($query, $values).' returning '.$this->wrap($sequence).' into ?';
+		return $this->compileInsert($query, $values);
 	}
 
 	/**
@@ -218,7 +218,7 @@ class ODBCQueryGrammar extends Grammar {
 		$binaryValue = array_fill(0, count($binaries), str_replace('?', 'EMPTY_BLOB()',$binaryParameters));
 		$value = array_merge($value, $binaryValue);
 		$parameters = implode(', ', $value);
-		return "insert into $table ($columns) values ($parameters) returning ".$binaryColumns.', '.$this->wrap($sequence).' into '.$binaryParameters.', ?';
+		return "insert into $table ($columns) values ($parameters)";
 	}
 
 	/**
@@ -276,7 +276,7 @@ class ODBCQueryGrammar extends Grammar {
 		// need to compile the where clauses and attach it to the query so only the
 		// intended records are updated by the SQL statements we generate to run.
 		$where = $this->compileWheres($query);
-		return "update {$table}{$joins} set $columns$binarySql $where returning ".$binaryColumns.', '.$this->wrap($sequence).' into '.$binaryParameters.', ?';
+		return "update {$table}{$joins} set $columns$binarySql $where";
 	}
 
 	/**
