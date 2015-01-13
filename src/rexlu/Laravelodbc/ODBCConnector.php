@@ -20,10 +20,8 @@ class ODBCConnector extends Connector implements ConnectorInterface {
 
 		$pdo = $this->createConnection($dsn, $config, $options);
 		$pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
+		$pdo->setAttribute(PDO::ATTR_AUTOCOMMIT,TRUE);
 		return $pdo;
-
 	}
-
-	
 
 }
