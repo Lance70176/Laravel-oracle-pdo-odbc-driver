@@ -34,5 +34,30 @@ class ODBCConnection extends Connection {
         $this->statement("alter session set NLS_TIMESTAMP_FORMAT = '$format'");
         return $this;
     }
-    
+
+    public function beginTransaction()
+    {
+        parent::beginTransaction();
+
+        if ($this->transactions == 1)
+        {
+            $this->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, false);
+        }
+    }
+
+    public function commit()
+    {
+        if ($this->transactions == 1) {
+            $this->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, true);
+        }
+        parent::commit();
+    }
+
+    public function rollBack()
+    {
+        if ($this->transactions == 1) {
+            $this->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, true);
+        }
+        parent::rollBack();
+    }
 }
