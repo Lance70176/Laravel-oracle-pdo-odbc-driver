@@ -1,6 +1,7 @@
 <?php namespace rexlu\Laravelodbc;
 
 use Illuminate\Database\Connection;
+use PDO;
 
 class ODBCConnection extends Connection {
 
