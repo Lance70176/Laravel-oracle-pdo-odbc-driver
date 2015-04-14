@@ -303,6 +303,11 @@ class ODBCQueryGrammar extends Grammar {
 
             //Some bindValue by "?" for Oracle may have some problem
             $value = str_replace(".","_",":".$where['column']);
+            $str_leng = strlen($value);
+
+            if ($str_leng >= 30) {
+            	$value = ':1';
+            }
 
             return $this->wrap($where['column']).' '.$where['operator'].' '.$value;
     }
