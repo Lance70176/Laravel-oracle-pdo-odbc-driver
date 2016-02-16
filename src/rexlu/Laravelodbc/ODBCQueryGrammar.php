@@ -306,7 +306,7 @@ class ODBCQueryGrammar extends Grammar {
             $str_leng = strlen($value);
 
             if ($str_leng >= 30) {
-            	$value = ':1';
+            	$value = '?';
             }
 
             return $this->wrap($where['column']).' '.$where['operator'].' '.$value;
