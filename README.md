@@ -3,6 +3,12 @@ Laravel-oracle-pdo-odbc-driver
 
 Adds an ODBC driver to Laravel 4.2, usable with Fluent and Eloquent.
 
+最大用途是透過此套件可以連接自定義的界接層 (EX:SQL Relay)在連到 Oracle
+
+如有在 laravel 5.2 需要搭配 SQL Relay 連到 Oracle 的專案
+
+請寄信跟我聯絡
+
 
 Installation
 ============
